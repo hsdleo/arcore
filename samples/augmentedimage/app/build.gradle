@@ -75,3 +75,19 @@ sceneform.asset('sampledata/models/frame_upper_right.obj',
         'default',
         'sampledata/models/frame_upper_right.sfa',
         'src/main/assets/models/frame_upper_right')
+
+
+sceneform.asset('sampledata/models/coca_cola/scene.gltf',
+        'default',
+        'sampledata/models/coca_cola/scene.sfa',
+        'src/main/assets/scene')
+
+sceneform.asset('sampledata/models/Oranges.obj',
+        'default',
+        'sampledata/models/Oranges.sfa',
+        'src/main/assets/Oranges')
+
+sceneform.asset('sampledata/models/pringles/source/model_Pringles_20180815_173653581.obj',
+        'default',
+        'sampledata/models/pringles/source/model_Pringles_20180815_173653581.sfa',
+        'src/main/assets/model_Pringles_20180815_173653581')

@@ -45,14 +45,15 @@ public class AugmentedImageFragment extends ArFragment {
   // This is the name of the image in the sample database.  A copy of the image is in the assets
   // directory.  Opening this image on your computer is a good quick way to test the augmented image
   // matching.
-  private static final String DEFAULT_IMAGE_NAME = "default.jpg";
+  private static final String DEFAULT_IMAGE_NAME_1 = "pringles.jpg";
+  private static final String DEFAULT_IMAGE_NAME_2 = "coca.jpg";
 
   // This is a pre-created database containing the sample image.
   private static final String SAMPLE_IMAGE_DATABASE = "sample_database.imgdb";
 
   // Augmented image configuration and rendering.
   // Load a single image (true) or a pre-generated image database (false).
-  private static final boolean USE_SINGLE_IMAGE = false;
+  private static final boolean USE_SINGLE_IMAGE = true;
 
   // Do a runtime check for the OpenGL level available at runtime to avoid Sceneform crashing the
   // application.
@@ -96,6 +97,7 @@ public class AugmentedImageFragment extends ArFragment {
   @Override
   protected Config getSessionConfiguration(Session session) {
     Config config = super.getSessionConfiguration(session);
+    config.setFocusMode(Config.FocusMode.AUTO);
     if (!setupAugmentedImageDatabase(config, session)) {
       SnackbarHelper.getInstance()
           .showError(getActivity(), "Could not setup augmented image database");
@@ -119,13 +121,15 @@ public class AugmentedImageFragment extends ArFragment {
     // * shorter setup time
     // * doesn't require images to be packaged in apk.
     if (USE_SINGLE_IMAGE) {
-      Bitmap augmentedImageBitmap = loadAugmentedImageBitmap(assetManager);
-      if (augmentedImageBitmap == null) {
+      Bitmap augmentedImageBitmapPringles = loadAugmentedImageBitmapPringles(assetManager);
+      Bitmap augmentedImageBitmapCoca = loadAugmentedImageBitmapCoca(assetManager);
+      if (augmentedImageBitmapPringles == null || augmentedImageBitmapCoca== null) {
         return false;
       }
 
       augmentedImageDatabase = new AugmentedImageDatabase(session);
-      augmentedImageDatabase.addImage(DEFAULT_IMAGE_NAME, augmentedImageBitmap);
+      augmentedImageDatabase.addImage(DEFAULT_IMAGE_NAME_1, augmentedImageBitmapPringles);
+      augmentedImageDatabase.addImage(DEFAULT_IMAGE_NAME_2, augmentedImageBitmapCoca);
       // If the physical size of the image is known, you can instead use:
       //     augmentedImageDatabase.addImage("image_name", augmentedImageBitmap, widthInMeters);
       // This will improve the initial detection speed. ARCore will still actively estimate the
@@ -145,8 +149,16 @@ public class AugmentedImageFragment extends ArFragment {
     return true;
   }
 
-  private Bitmap loadAugmentedImageBitmap(AssetManager assetManager) {
-    try (InputStream is = assetManager.open(DEFAULT_IMAGE_NAME)) {
+  private Bitmap loadAugmentedImageBitmapPringles(AssetManager assetManager) {
+    try (InputStream is = assetManager.open(DEFAULT_IMAGE_NAME_1)) {
+      return BitmapFactory.decodeStream(is);
+    } catch (IOException e) {
+      Log.e(TAG, "IO exception loading augmented image bitmap.", e);
+    }
+    return null;
+  }
+  private Bitmap loadAugmentedImageBitmapCoca(AssetManager assetManager) {
+    try (InputStream is = assetManager.open(DEFAULT_IMAGE_NAME_2)) {
       return BitmapFactory.decodeStream(is);
     } catch (IOException e) {
       Log.e(TAG, "IO exception loading augmented image bitmap.", e);

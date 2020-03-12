@@ -18,13 +18,16 @@ package com.google.ar.sceneform.samples.augmentedimage;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+
 import com.google.ar.core.AugmentedImage;
 import com.google.ar.core.Frame;
 import com.google.ar.sceneform.FrameTime;
 import com.google.ar.sceneform.samples.common.helpers.SnackbarHelper;
 import com.google.ar.sceneform.ux.ArFragment;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,73 +45,96 @@ import java.util.Map;
  */
 public class AugmentedImageActivity extends AppCompatActivity {
 
-  private ArFragment arFragment;
-  private ImageView fitToScanView;
+    private ArFragment arFragment;
+    private ImageView fitToScanView;
 
-  // Augmented image and its associated center pose anchor, keyed by the augmented image in
-  // the database.
-  private final Map<AugmentedImage, AugmentedImageNode> augmentedImageMap = new HashMap<>();
+    // Augmented image and its associated center pose anchor, keyed by the augmented image in
+    // the database.
+    private final Map<AugmentedImage, AugmentedImageNodePringles> augmentedImageMapPringles = new HashMap<>();
+    private final Map<AugmentedImage, AugmentedImageNodeCoca> augmentedImageMapCoca = new HashMap<>();
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-    arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
-    fitToScanView = findViewById(R.id.image_view_fit_to_scan);
+        arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
+        fitToScanView = findViewById(R.id.image_view_fit_to_scan);
 
-    arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
-  }
-
-  @Override
-  protected void onResume() {
-    super.onResume();
-    if (augmentedImageMap.isEmpty()) {
-      fitToScanView.setVisibility(View.VISIBLE);
-    }
-  }
-
-  /**
-   * Registered with the Sceneform Scene object, this method is called at the start of each frame.
-   *
-   * @param frameTime - time since last frame.
-   */
-  private void onUpdateFrame(FrameTime frameTime) {
-    Frame frame = arFragment.getArSceneView().getArFrame();
-
-    // If there is no frame, just return.
-    if (frame == null) {
-      return;
+        arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
     }
 
-    Collection<AugmentedImage> updatedAugmentedImages =
-        frame.getUpdatedTrackables(AugmentedImage.class);
-    for (AugmentedImage augmentedImage : updatedAugmentedImages) {
-      switch (augmentedImage.getTrackingState()) {
-        case PAUSED:
-          // When an image is in PAUSED state, but the camera is not PAUSED, it has been detected,
-          // but not yet tracked.
-          String text = "Detected Image " + augmentedImage.getIndex();
-          SnackbarHelper.getInstance().showMessage(this, text);
-          break;
-
-        case TRACKING:
-          // Have to switch to UI Thread to update View.
-          fitToScanView.setVisibility(View.GONE);
-
-          // Create a new anchor for newly found images.
-          if (!augmentedImageMap.containsKey(augmentedImage)) {
-            AugmentedImageNode node = new AugmentedImageNode(this);
-            node.setImage(augmentedImage);
-            augmentedImageMap.put(augmentedImage, node);
-            arFragment.getArSceneView().getScene().addChild(node);
-          }
-          break;
-
-        case STOPPED:
-          augmentedImageMap.remove(augmentedImage);
-          break;
-      }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (augmentedImageMapPringles.isEmpty() || augmentedImageMapCoca.isEmpty()) {
+            fitToScanView.setVisibility(View.VISIBLE);
+        }
     }
-  }
+
+    /**
+     * Registered with the Sceneform Scene object, this method is called at the start of each frame.
+     *
+     * @param frameTime - time since last frame.
+     */
+    private void onUpdateFrame(FrameTime frameTime) {
+        Frame frame = arFragment.getArSceneView().getArFrame();
+
+        // If there is no frame, just return.
+        if (frame == null) {
+            return;
+        }
+
+        Collection<AugmentedImage> updatedAugmentedImages =
+                frame.getUpdatedTrackables(AugmentedImage.class);
+        for (AugmentedImage augmentedImage : updatedAugmentedImages) {
+            switch (augmentedImage.getTrackingState()) {
+                case PAUSED:
+                    // When an image is in PAUSED state, but the camera is not PAUSED, it has been detected,
+                    // but not yet tracked.
+                    Log.d("debug_arcore","Pausou - " +  augmentedImage.getName());
+
+                    String text = "Detected Image " + augmentedImage.getIndex();
+                    SnackbarHelper.getInstance().showMessage(this, text);
+                    break;
+
+                case TRACKING:
+                    // Have to switch to UI Thread to update View.
+                    fitToScanView.setVisibility(View.GONE);
+
+                    // Create a new anchor for newly found images.
+                    if (augmentedImage.getName().equals("pringles.jpg")) {
+                        if (!augmentedImageMapPringles.containsKey(augmentedImage)) {
+                            Log.d("debug_arcore", augmentedImage.getName());
+                            Log.d("debug_arcore", "" + augmentedImage.getIndex());
+                            AugmentedImageNodePringles node = new AugmentedImageNodePringles(this);
+                            node.setImage(augmentedImage);
+                            augmentedImageMapPringles.put(augmentedImage, node);
+                            arFragment.getArSceneView().getScene().addChild(node);
+
+                        }
+                    }
+                    if (augmentedImage.getName().equals("coca.jpg")) {
+                        if (!augmentedImageMapCoca.containsKey(augmentedImage)) {
+                            Log.d("debug_arcore", augmentedImage.getName());
+                            Log.d("debug_arcore", "" + augmentedImage.getIndex());
+
+                            AugmentedImageNodeCoca nodeCoca = new AugmentedImageNodeCoca(this);
+                            nodeCoca.setImage(augmentedImage);
+                            augmentedImageMapCoca.put(augmentedImage, nodeCoca);
+                            //augmentedImageMap.put(augmentedImage, nodeCoca);
+
+                            arFragment.getArSceneView().getScene().addChild(nodeCoca);
+                        }
+
+                    }
+                    break;
+
+                case STOPPED:
+                    augmentedImageMapPringles.remove(augmentedImage);
+                    augmentedImageMapCoca.remove(augmentedImage);
+                    break;
+            }
+        }
+    }
 }
