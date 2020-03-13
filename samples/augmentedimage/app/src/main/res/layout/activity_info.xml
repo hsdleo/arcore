@@ -1,89 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rl_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_light_background"
-    android:animateLayoutChanges="true"
-    tools:context="com.google.ar.sceneform.samples.MainActivity">
+    android:orientation="horizontal"
+    tools:context="com.google.ar.sceneform.samples.InfoActivity">
 
-    <ImageView
-        android:id="@+id/iv_alerta"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_margin="20dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/alerta_icon2"
-        android:scaleType="fitCenter" />
-
-    <TextView
-        android:id="@+id/tv_alerta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/iv_alerta"
-        android:text="ATENÇÃO!!! \nO time de pricing tomou uma carcada do comercial.
-As vendas caíram 15%  desde a última precificação."
-        android:layout_marginTop="100dp"
-        android:textSize="30sp"
-        android:textColor="@color/colorPrimary"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/iv_alerta"
-        android:layout_alignParentLeft="true"
-        android:layout_margin="40dp"
-        android:textStyle="bold"
-        android:text="Você precisa realizar uma ação AGORA para as trocas de preços dos produtos SUPER
-SENSÍVEIS!!"
-        android:textSize="40sp"
-        android:textColor="@color/colorPrimary"/>
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="20dp"
-        android:baselineAligned="false"
-        android:layout_alignParentBottom="true">
+        android:layout_margin="20dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/ll_coca"
+            android:layout_width="240dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="350dp">
+            <ImageView
+                android:id="@+id/iv_coca"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@drawable/coca"
+                android:scaleType="fitXY" />
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/tv_descricao_coca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_coca"
+            android:padding="10dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="REFRIGERANTE COCA COLA \n LATA 350ML"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_descricao_coca"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/border_image"
+            android:lineSpacingExtra="20dp"
+            android:gravity="center"
+            android:padding="25dp"
+            android:text="Preço de Custo\n R$ 2,15"
+            android:textColor="@color/colorPrimary"
+            android:textSize="35sp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/ll_pringles"
+            android:layout_width="150dp"
+            android:layout_height="450dp"
+            android:layout_centerHorizontal="true"
+            >
+
+            <ImageView
+                android:id="@+id/iv_pringles"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:adjustViewBounds="true"
+                android:background="@drawable/pringles"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_descricao_pringles"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_pringles"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="BATATA PRINGLES ORIGINAL PRINGOOOLS 168G"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_descricao_pringles"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border_image"
+            android:gravity="center"
+            android:padding="25dp"
+            android:lineSpacingExtra="20dp"
+            android:text="Preço Concorrente\n R$ 14,50"
+            android:textColor="@color/colorPrimary"
+            android:textSize="35sp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/ll_stella"
+            android:layout_width="300dp"
+            android:layout_height="350dp"
+            android:layout_centerHorizontal="true">
+            <ImageView
+                android:id="@+id/iv_stella"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@drawable/stella"
+                android:scaleType="fitXY" />
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/tv_descricao_stella"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_stella"
+            android:padding="10dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="CERVEJA STELLA ARTOIS LONG NECK 275ML
+"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tv_info_stella"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_descricao_stella"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/border_image"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Preço Concorrente\n R$ 2,55"
+            android:textColor="@color/colorPrimary"
+            android:textSize="35sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_info_stella"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/border_image"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="EM PROMOÇÃO"
+            android:textColor="@color/colorPrimary"
+            android:textSize="35sp" />
+
         <Button
-            android:id="@+id/btn_opcao_1"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="150dp"
-            android:background="@drawable/bg_button_menu"
-            android:text="Já sei quais preços colocar"
+            android:id="@+id/btn_avancar"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_button_white"
+            android:text="Avançar"
             android:textAllCaps="false"
-            android:layout_margin="10dp"
-            android:textColor="@android:color/white"
-            android:textSize="28sp"
+            android:layout_margin="20dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:textSize="25sp"
             android:visibility="visible" />
-        <Button
-            android:id="@+id/btn_opcao_2"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@drawable/bg_button_menu"
-            android:text="Preciso de mais informações antes de decidir"
-            android:layout_margin="10dp"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="28sp"
-            android:visibility="visible" />
-        <Button
-            android:id="@+id/btn_opcao_3"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="150dp"
-            android:background="@drawable/bg_button_menu"
-            android:text="Não aguento mais!\nTô FORA!"
-            android:textAllCaps="false"
-            android:layout_margin="10dp"
-            android:textColor="@android:color/white"
-            android:textSize="28sp"
-            android:visibility="visible" />
-    </LinearLayout>
-</RelativeLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
