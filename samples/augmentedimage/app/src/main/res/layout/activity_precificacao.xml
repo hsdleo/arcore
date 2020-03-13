@@ -42,17 +42,18 @@
             android:textColor="@color/colorPrimary"
             android:textSize="24sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.google.ar.sceneform.samples.common.helpers.EditTextAlwaysLast
+            android:id="@+id/et_coca"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
             android:layout_below="@id/tv_descricao_coca"
             android:layout_marginTop="50dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/border_image"
             android:lineSpacingExtra="20dp"
+            android:imeOptions="actionDone"
             android:gravity="center"
             android:padding="25dp"
-            android:text="Preço de Custo\n R$ 2,15"
             android:textColor="@color/colorPrimary"
             android:textSize="35sp" />
 
@@ -96,17 +97,18 @@
             android:textColor="@color/colorPrimary"
             android:textSize="24sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.google.ar.sceneform.samples.common.helpers.EditTextAlwaysLast
+            android:id="@+id/et_pringles"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
             android:layout_below="@id/tv_descricao_pringles"
+            android:layout_marginTop="50dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
             android:background="@drawable/border_image"
+            android:lineSpacingExtra="20dp"
+            android:imeOptions="actionDone"
             android:gravity="center"
             android:padding="25dp"
-            android:lineSpacingExtra="20dp"
-            android:text="Preço Concorrente\n R$ 14,50"
             android:textColor="@color/colorPrimary"
             android:textSize="35sp" />
 
@@ -144,32 +146,32 @@
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:layout_marginTop="10dp"
-            android:text="CERVEJA STELLA ARTOIS LONG NECK 275ML
-"
+            android:text="CERVEJA STELLA ARTOIS LONG NECK 275ML"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/tv_info_stella"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.google.ar.sceneform.samples.common.helpers.EditTextAlwaysLast
+            android:id="@+id/et_stella"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
             android:layout_below="@id/tv_descricao_stella"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/border_image"
+            android:lineSpacingExtra="20dp"
+            android:imeOptions="actionDone"
             android:gravity="center"
-            android:padding="10dp"
-            android:text="Preço Concorrente\n R$ 2,55 \n\n EM PROMOÇÃO"
+            android:padding="25dp"
             android:textColor="@color/colorPrimary"
             android:textSize="35sp" />
 
 
         <Button
-            android:id="@+id/btn_avancar"
+            android:id="@+id/btn_finalizar"
             android:layout_width="200dp"
             android:layout_height="70dp"
             android:background="@drawable/bg_button_white"
-            android:text="Avançar"
+            android:text="Finalizar"
             android:textAllCaps="false"
             android:layout_margin="20dp"
             android:textColor="@color/colorPrimary"

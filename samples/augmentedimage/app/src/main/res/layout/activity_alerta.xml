@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/cardview_light_background"
     android:animateLayoutChanges="true"
-    tools:context="com.google.ar.sceneform.samples.AlertaActivity">
+    tools:context=".AlertaActivity">
 
     <ImageView
         android:id="@+id/iv_alerta"

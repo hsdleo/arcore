@@ -83,7 +83,7 @@ public class AugmentedImageNodeCoca extends AnchorNode {
 
     // Make the 4 corner nodes.
     Vector3 localPosition = new Vector3();
-    Vector3 localScale = new Vector3(1.0f,1.0f,1.0f);
+    Vector3 localScale = new Vector3(0.6f,0.6f,0.6f);
     Node cornerNode;
 
     cornerNode = new Node();

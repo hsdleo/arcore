@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/cardview_light_background"
     android:animateLayoutChanges="true"
-    tools:context="com.google.ar.sceneform.samples.MainActivity">
+    tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="450dp"
@@ -23,7 +23,7 @@
         android:layout_alignParentBottom="true">
 
         <Button
-            android:id="@+id/btn_pagar"
+            android:id="@+id/btn_iniciar"
             android:layout_width="200dp"
             android:layout_height="80dp"
             android:layout_centerHorizontal="true"
