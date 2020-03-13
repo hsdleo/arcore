@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f06314</color>
+    <color name="colorPrimaryDark">#b5680b</color>
+    <color name="colorAccent">#ffc947</color>
+    <color name="fundo_pdv_gray">#26000000</color>
+    <color name="fundo_pdv_white">#ffff</color>
+    <color name="color_borda">#b4b4b4</color>
+    <color name="color_card_item">#f2f2f2</color>
+    <color name="color_btn_menu_start">#ffc947</color>
+    <color name="color_btn_menu_end">#ff9800</color>
+    <color name="color_btn_menu_stroke">#ff9800</color>
+    <color name="color_btn_menu_dark">#c66900</color>
+
+
+
+
+</resources>

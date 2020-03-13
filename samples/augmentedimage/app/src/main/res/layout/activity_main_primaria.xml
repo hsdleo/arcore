@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
+    android:animateLayoutChanges="true"
+    tools:context="com.google.ar.sceneform.samples.MainActivity">
+
+    <ImageView
+        android:layout_width="450dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:adjustViewBounds="true"
+        android:background="@drawable/ic_launcher"
+        android:scaleType="fitCenter" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btn_pagar"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_button_menu"
+            android:text="Iniciar"
+            android:textAllCaps="false"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:visibility="visible" />
+    </RelativeLayout>
+</RelativeLayout>

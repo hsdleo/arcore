@@ -121,10 +121,13 @@ public class AugmentedImageActivity extends AppCompatActivity {
 
                             AugmentedImageNodeCoca nodeCoca = new AugmentedImageNodeCoca(this);
                             nodeCoca.setImage(augmentedImage);
+                            AugmentedImageNodeText nodeText = new AugmentedImageNodeText(this);
+                            nodeText.setImage(augmentedImage);
                             augmentedImageMapCoca.put(augmentedImage, nodeCoca);
                             //augmentedImageMap.put(augmentedImage, nodeCoca);
 
                             arFragment.getArSceneView().getScene().addChild(nodeCoca);
+                            arFragment.getArSceneView().getScene().addChild(nodeText);
                         }
 
                     }

@@ -91,3 +91,18 @@ sceneform.asset('sampledata/models/pringles/source/model_Pringles_20180815_17365
         'default',
         'sampledata/models/pringles/source/model_Pringles_20180815_173653581.sfa',
         'src/main/assets/model_Pringles_20180815_173653581')
+
+sceneform.asset('sampledata/models/text3d.obj',
+        'default',
+        'sampledata/models/text3d.sfa',
+        'src/main/assets/text3d')
+
+sceneform.asset('sampledata/models/texto_cpi.obj',
+        'default',
+        'sampledata/models/texto_cpi.sfa',
+        'src/main/assets/texto_cpi')
+
+sceneform.asset('sampledata/models/txt_venda.obj',
+        'default',
+        'sampledata/models/txt_venda.sfa',
+        'src/main/assets/txt_venda')

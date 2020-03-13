@@ -83,7 +83,7 @@ public class AugmentedImageNodeCoca extends AnchorNode {
 
     // Make the 4 corner nodes.
     Vector3 localPosition = new Vector3();
-    Vector3 localScale = new Vector3(0.3f,0.3f,0.3f);
+    Vector3 localScale = new Vector3(1.0f,1.0f,1.0f);
     Node cornerNode;
 
     cornerNode = new Node();
@@ -92,7 +92,7 @@ public class AugmentedImageNodeCoca extends AnchorNode {
 
 
     //center position
-    localPosition.set(0.1f, 0.0f, 0.0f);
+    localPosition.set(0.0f, 0.0f, 0.0f);
     cornerNode.setParent(this);
 
     Quaternion q1 = cornerNode.getLocalRotation();

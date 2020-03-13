@@ -142,7 +142,7 @@
   },
   samplers: [
     {
-      file: 'sampledata/models/coca_cola\\textures\\material_1_baseColor.jpg',
+      file: 'sampledata/models/coca_cola/textures/material_1_baseColor.jpg',
       name: 'material_1_baseColor',
       pipeline_name: 'textures/material_1_baseColor.jpg',
     },

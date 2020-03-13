@@ -36,7 +36,7 @@ import java.util.concurrent.CompletableFuture;
 @SuppressWarnings({"AndroidApiChecker"})
 public class AugmentedImageNodePringles extends AnchorNode {
 
-  private static final String TAG = "AugmentedImageNodeCoca";
+  private static final String TAG = "AugmentedImageNodePringles";
 
   // The augmented image represented by this node.
   private AugmentedImage image;

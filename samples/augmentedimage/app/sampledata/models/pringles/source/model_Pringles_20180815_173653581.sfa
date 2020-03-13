@@ -41,7 +41,7 @@
   },
   samplers: [
     {
-      file: 'sampledata/models/pringles/source\\texture.jpg',
+      file: 'sampledata/models/pringles/source/texture.jpg',
       name: 'texture',
       params: {
         usage_type: 'Data',
